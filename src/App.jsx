@@ -1,10 +1,13 @@
 import { useState, useRef } from "react"
-import { Song } from "./components/Song.jsx"
 import { ID3Writer } from 'browser-id3-writer'
 import { saveAs } from 'file-saver'
-import { convertFileToBuffer, fetchFileAsBuffer } from 'id3-parser/lib/util'
-import { createSongFromTag } from './lib/mp3'
+import { convertFileToBuffer } from 'id3-parser/lib/util'
 import parse from 'id3-parser'
+
+import { Song } from "./components/Song.jsx"
+import { createSongFromTag } from './lib/mp3'
+import uploadIcon from "./assets/upload.svg"
+import downloadIcon from "./assets/download.svg"
 
 import './App.css'
 
@@ -64,12 +67,17 @@ function App() {
 
   return (
     <div className='page'>
-      <div className='songContainer'> 
+      <div className='mp3-container'> 
         <h1>MP3 Editor</h1>  
         <div className='button-container'>
-          <button className="input-button" onClick={uploadFile}>Upload</button>
+          <button className="input-button" onClick={uploadFile}>
+            Upload
+          </button>
           <input type='file' accept='audio/mpeg' id='file' ref={songInput} onChange={handleFileChange} hidden></input>
-          <button className="input-button" onClick={downloadSong}>Download</button>
+
+          <button className="input-button" onClick={downloadSong}>
+            Download
+          </button>
         </div> 
         <Song
           updateDisplayedSong={updateDisplayedSong}

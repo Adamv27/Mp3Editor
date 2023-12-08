@@ -4,13 +4,27 @@
   align-items: center;
 }
 
-.song-container > label{
+.song-container > label {
+  margin-top: 0.75rem;
   color: #496D96;
+  font-weight: bolder;
+  
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .song-container > img {
   width: 12rem;
   height: 12rem;
+  border-radius: 8px;
+}
+
+.song-input {
+  margin-left: 0.5rem;
+  padding: 0.4rem;
+  border: 2px solid lightgray;
   border-radius: 8px;
 }
 

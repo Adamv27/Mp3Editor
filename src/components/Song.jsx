@@ -27,25 +27,33 @@ export const Song = ({updateDisplayedSong, title, artist, album, image }) => {
   return(
     <div className='song-container'>
       <img src={image != null ? image : placeHolder} onClick={uploadImage}/>
-
-      <label>Title</label>
-      <input 
-        type='text' 
-        defaultValue={title} 
-        onChange={(e) => updateDisplayedSong('title', e.target.value)}
-      />
-      <label>Artist</label>
-      <input 
-        type='text' 
-        defaultValue={artist}
-        onChange={(e) => updateDisplayedSong('artist', e.target.value)}
-      />
-      <label>Album</label>
-      <input 
-        type='text' 
-        defaultValue={album}
-        onChange={(e) => updateDisplayedSong('album', e.target.value)}
-      />
+      <label>
+        Title
+        <input 
+          className='song-input'
+          type='text' 
+          defaultValue={title} 
+          onChange={(e) => updateDisplayedSong('title', e.target.value)}
+        />
+      </label>
+      <label>
+        Artist
+        <input 
+          className='song-input'
+          type='text' 
+          defaultValue={artist}
+          onChange={(e) => updateDisplayedSong('artist', e.target.value)}
+        />
+      </label>
+      <label>
+        Album
+        <input
+          className='song-input'
+          type='text' 
+          defaultValue={album}
+          onChange={(e) => updateDisplayedSong('album', e.target.value)}
+        />
+      </label>
       <input type='file' accept='png/jpeg' ref={imageInput} onChange={handleImageChange} hidden></input>
     </div>
   )
