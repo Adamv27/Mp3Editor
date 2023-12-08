@@ -1,0 +1,16 @@
+.page {
+  width: 100vw;
+  height: 100vh; 
+  background-color: #CDDAED;
+
+  display: flex;
+  justify-content: center;
+}
+
+.songContainer {
+  margin-top: 5rem;
+  width: 30rem;
+  height: 35rem;
+  background-color: white;
+  border-radius: 8px;
+}
