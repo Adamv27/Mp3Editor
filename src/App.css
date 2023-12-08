@@ -13,4 +13,29 @@
   height: 35rem;
   background-color: white;
   border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.songContainer > h1 {
+  margin: 0;
+  margin-top: 1rem;
+  color: #496D96;
+}
+
+
+.button-container {
+  width: 80%;
+  margin: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.input-button {
+  background-color: #496D96;
+  color: white;
+  width: 8rem;
 }
