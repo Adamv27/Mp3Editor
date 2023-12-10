@@ -3,13 +3,11 @@ import { ID3Writer } from 'browser-id3-writer'
 import { saveAs } from 'file-saver'
 import { convertFileToBuffer } from 'id3-parser/lib/util'
 import parse from 'id3-parser'
-
+import { MdOutlineDriveFolderUpload } from "react-icons/md";
+import { RiFolderDownloadLine } from "react-icons/ri";
 import { Song } from "./components/Song.jsx"
 import { createSongFromTag } from './lib/mp3'
-import uploadIcon from "./assets/upload.svg"
-import downloadIcon from "./assets/download.svg"
 
-import './App.css'
 
 
 function App() {
@@ -66,27 +64,27 @@ function App() {
   }
 
   return (
-    <div className='page'>
-      <div className='mp3-container'> 
-        <h1>MP3 Editor</h1>  
-        <div className='button-container'>
-          <button className="input-button" onClick={uploadFile}>
-            Upload
-          </button>
-          <input type='file' accept='audio/mpeg' id='file' ref={songInput} onChange={handleFileChange} hidden></input>
+    <div className='flex flex-col items-center p-4'> 
+      <h1 className='m-4 text-5xl font-bold text-green'>MP3 Editor</h1>  
+      <div className='m-4 flex'>
+        <button className="w-32 p-2 flex items-center justify-evenly rounded bg-green text-white m-4 shadow-lg" onClick={uploadFile}>
+          Upload
+          <MdOutlineDriveFolderUpload className='ml-2 w-6 h-6'/>
+        </button>
+        <input type='file' accept='audio/mpeg' id='file' ref={songInput} onChange={handleFileChange} hidden></input>
 
-          <button className="input-button" onClick={downloadSong}>
-            Download
-          </button>
-        </div> 
-        <Song
-          updateDisplayedSong={updateDisplayedSong}
-          title={displayedSong.title}
-          artist={displayedSong.artist}
-          album={displayedSong.album}
-          image={displayedSong.image.url}
-        />
-      </div>
+        <button className="w-32 p-2 flex items-center justify-evenly rounded bg-green text-white m-4 shadow-lg" onClick={downloadSong}>
+          Download
+          <RiFolderDownloadLine className='ml-2 w-6 h-6'/>
+        </button>
+      </div> 
+      <Song
+        updateDisplayedSong={updateDisplayedSong}
+        title={displayedSong.title}
+        artist={displayedSong.artist}
+        album={displayedSong.album}
+        image={displayedSong.image.url}
+      />
     </div>
   )
 }

@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react"
 import placeHolder from "../assets/placeholder.png"
 import { getImageUrlFromBuffer } from "../lib/mp3"
-
-import './song.css'
+import { SongInput } from "../components/SongInput"
 
 export const Song = ({updateDisplayedSong, title, artist, album, image }) => {
 
@@ -23,37 +22,26 @@ export const Song = ({updateDisplayedSong, title, artist, album, image }) => {
     updateDisplayedSong("image", data);
   }
 
-
   return(
-    <div className='song-container'>
-      <img src={image != null ? image : placeHolder} onClick={uploadImage}/>
-      <label>
-        Title
-        <input 
-          className='song-input'
-          type='text' 
-          defaultValue={title} 
-          onChange={(e) => updateDisplayedSong('title', e.target.value)}
+    <div className='flex items-center bg-white p-8 rounded-xl shadow-lg'>
+      <img className='w-60 h-60 rounded-xl' src={image != null ? image : placeHolder} onClick={uploadImage}/>
+      <div className='h-60 ml-8 flex flex-col justify-evenly'>
+        <SongInput
+          label={"Title"}
+          defaultValue={title}
+          updateDisplayedSong={updateDisplayedSong}
         />
-      </label>
-      <label>
-        Artist
-        <input 
-          className='song-input'
-          type='text' 
+        <SongInput
+          label={"Artist"}
           defaultValue={artist}
-          onChange={(e) => updateDisplayedSong('artist', e.target.value)}
+          updateDisplayedSong={updateDisplayedSong}
         />
-      </label>
-      <label>
-        Album
-        <input
-          className='song-input'
-          type='text' 
+        <SongInput
+          label={"Album"}
           defaultValue={album}
-          onChange={(e) => updateDisplayedSong('album', e.target.value)}
+          updateDisplayedSong={updateDisplayedSong}
         />
-      </label>
+      </div>
       <input type='file' accept='png/jpeg' ref={imageInput} onChange={handleImageChange} hidden></input>
     </div>
   )
