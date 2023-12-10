@@ -42,7 +42,7 @@ export const Song = ({updateDisplayedSong, title, artist, album, image }) => {
           updateDisplayedSong={updateDisplayedSong}
         />
       </div>
-      <input type='file' accept='png/jpeg' ref={imageInput} onChange={handleImageChange} hidden></input>
+      <input type='file' accept='image/png, image/jpeg' ref={imageInput} onChange={handleImageChange} hidden></input>
     </div>
   )
 }
